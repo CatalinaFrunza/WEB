@@ -1,0 +1,72 @@
+﻿@page
+@model WEB.Pages.Sporturi.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sport[0].NumeSport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sport[0].InstructorID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sport[0].Pret)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sport[0].Locatie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sport[0].Durata)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sport[0].CategoriiSport)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SportD.Sporturi) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeSport)
+            </td> <td>
+                @Html.DisplayFor(modelItem => item.InstructorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Locatie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Durata)
+            </td>
+                <td>
+                    @{
+                        foreach (var category in item.CategoriiSport)
+                        {
+                            @category.Categorie.ID @: @category.Categorie.NumeCategorie <br />
+                        }
+                    }
+                            </td>
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
