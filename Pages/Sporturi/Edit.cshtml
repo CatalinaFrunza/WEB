@@ -30,9 +30,9 @@
                 <span asp-validation-for="Sport.Pret" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Sport.Locatie" class="control-label"></label>
-                <input asp-for="Sport.Locatie" class="form-control" />
-                <span asp-validation-for="Sport.Locatie" class="text-danger"></span>
+                <label asp-for="Sport.LocatieID" class="control-label"></label>
+                <select asp-for="Sport.LocatieID" class="form-control" asp-items="ViewBag.LocatieID"></select>                
+                <span asp-validation-for="Sport.LocatieID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Sport.Durata" class="control-label"></label>

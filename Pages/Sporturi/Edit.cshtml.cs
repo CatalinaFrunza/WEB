@@ -33,9 +33,8 @@ namespace WEB.Pages.Sporturi
             Sport = await _context.Sport
             .Include(b => b.Instructor)
             .Include(b => b.Locatie)
-            .Include(b => b.Pret)
-            .Include(b => b.Durata)
            .Include(b => b.CategoriiSport).ThenInclude(b => b.Categorie)
+           .Include(b => b.Locatie)
            .AsNoTracking()
            .FirstOrDefaultAsync(m => m.ID == id);
 
@@ -50,7 +49,10 @@ namespace WEB.Pages.Sporturi
                 x.ID,
                 FullName = x.Nume + " " + x.Prenume
             });
+
             ViewData["InstructorID"] = new SelectList(InstructorList, "ID", "FullName");
+            ViewData["LocatieID"] = new SelectList(_context.Set<Locatie>(), "ID", "NumeSala");
+
 
             return Page();
         }
@@ -64,12 +66,11 @@ namespace WEB.Pages.Sporturi
             }
 
             var sportToUpdate = await _context.Sport
-            .Include(i => i.NumeSport)
+            .Include(i => i.Locatie)
+            .Include(i => i.Instructor)
             .Include(i => i.CategoriiSport)
             .ThenInclude(i => i.Categorie)
             .Include(i => i.Instructor)
-            .Include(i => i.Pret)
-            .Include(i => i.Durata)
             .FirstOrDefaultAsync(s => s.ID == id);
 
             if (sportToUpdate == null)

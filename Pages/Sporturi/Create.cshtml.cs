@@ -28,6 +28,8 @@ namespace WEB.Pages.Sporturi
             });
 
             ViewData["InstructorID"] = new SelectList(InstructorList, "ID", "FullName");
+            ViewData["LocatieID"] = new SelectList(_context.Set<Locatie>(), "ID", "NumeSala");
+
 
             var sport = new Sport();
             sport.CategoriiSport = new List<CategorieSport>();
