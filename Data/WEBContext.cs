@@ -16,9 +16,8 @@ namespace WEB.Data
 
         public DbSet<WEB.Models.Sport> Sport { get; set; }
 
-        public DbSet<WEB.Models.Sport> Instructor { get; set; }
+        public DbSet<WEB.Models.Instructor> Instructor { get; set; }
         public DbSet<WEB.Models.Categorie> Categorie { get; set; }
-        public DbSet<WEB.Models.Instructor> Instructor_1 { get; set; }
         public DbSet<WEB.Models.Locatie> Locatie { get; set; }
     }
 }

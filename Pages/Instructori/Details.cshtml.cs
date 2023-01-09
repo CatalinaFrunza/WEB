@@ -36,7 +36,7 @@ namespace WEB.Pages.Instructori
             }
             else
             {
-                Instructor = instructor;
+                Instructor = Instructor;
             }
             return Page();
         }

@@ -31,12 +31,19 @@ namespace WEB.Pages.Sporturi
 
         public string CurrentFilter { get; set; }
 
+        public string SportSortare { get; set; }
+        public string InstructorSortare { get; set; }
+
 
         public async Task OnGetAsync(int? id, int? CategorieID, string sortOrder, string searchString)
         {
             SportD = new SportDate();
 
             CurrentFilter = searchString;
+
+            SportSortare = String.IsNullOrEmpty(sortOrder) ? "sport_desc" : "";
+            InstructorSortare = String.IsNullOrEmpty(sortOrder) ? "instructori_desc" : "";
+
 
             SportD.Sporturi = await _context.Sport
                 .Include(b => b.Instructor)

@@ -36,7 +36,7 @@ namespace WEB.Pages.Instructori
             {
                 return NotFound();
             }
-            Instructor = instructor;
+           
             return Page();
         }
 
@@ -72,7 +72,7 @@ namespace WEB.Pages.Instructori
 
         private bool InstructorExists(int id)
         {
-            return _context.Instructor_1.Any(e => e.ID == id);
+            return _context.Instructor.Any(e => e.ID == id);
         }
     }
 }

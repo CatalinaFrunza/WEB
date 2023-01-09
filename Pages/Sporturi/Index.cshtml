@@ -26,10 +26,14 @@
     <thead>
         <tr>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.SportSortare">
                 @Html.DisplayNameFor(model => model.Sport[0].NumeSport)
+                </a>
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.InstructorSortare">
                 @Html.DisplayNameFor(model => model.Sport[0].InstructorID)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Sport[0].Pret)
@@ -43,7 +47,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Sport[0].CategoriiSport)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>

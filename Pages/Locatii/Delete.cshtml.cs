@@ -29,11 +29,15 @@ namespace WEB.Pages.Locatii
                 return NotFound();
             }
 
-            Locatie = await _context.Locatie.FirstOrDefaultAsync(m => m.ID == id);
+            var locatie = await _context.Locatie.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Locatie == null)
+            if (locatie == null)
             {
                 return NotFound();
+            }
+            else
+            {
+                Locatie = locatie;
             }
             return Page();
         }
@@ -45,10 +49,11 @@ namespace WEB.Pages.Locatii
                 return NotFound();
             }
 
-            Locatie = await _context.Locatie.FindAsync(id);
+            var locatie = await _context.Locatie.FindAsync(id);
 
-            if (Locatie != null)
+            if (locatie != null)
             {
+                Locatie = locatie;
                 _context.Locatie.Remove(Locatie);
                 await _context.SaveChangesAsync();
             }

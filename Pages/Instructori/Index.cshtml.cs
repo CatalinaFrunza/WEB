@@ -19,7 +19,7 @@ namespace WEB.Pages.Instructori
             _context = context;
         }
 
-        public IList<Instructor> Instructor { get;set; }
+        public IList<Instructor> Instructor { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

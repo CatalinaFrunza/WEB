@@ -21,7 +21,8 @@ namespace WEB.Models
 
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Pret { get; set; }
-        public string Locatie { get; set; }
+        public int? LocatieID { get; set; }
+        public Locatie? Locatie { get; set; }
 
         public ICollection<CategorieSport>? CategoriiSport { get; set; }
 

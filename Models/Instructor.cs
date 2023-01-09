@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
@@ -27,10 +26,7 @@ namespace WEB.Models
         public int Experienta { get; set; }
 
         public ICollection<Sport>? Sporturi { get; set; }
+        public ICollection<Instructor>? Instructori { get; set; }
 
-        public static implicit operator Instructor(Sport v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

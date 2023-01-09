@@ -24,7 +24,7 @@ namespace WEB.Pages.Sporturi
             var InstructorList = _context.Instructor.Select(x => new
             {
                 x.ID,
-                FullName = x.Instructor.Nume + " " + x.Instructor.Prenume
+                FullName = x.Nume + " " + x.Prenume
             });
 
             ViewData["InstructorID"] = new SelectList(InstructorList, "ID", "FullName");
