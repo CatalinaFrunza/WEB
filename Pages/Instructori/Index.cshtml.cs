@@ -23,7 +23,10 @@ namespace WEB.Pages.Instructori
 
         public async Task OnGetAsync()
         {
-            Instructor = await _context.Instructor_1.ToListAsync();
+            if (_context.Instructor != null)
+            {
+                Instructor = (IList<Instructor>)await _context.Instructor.ToListAsync();
+            }
         }
     }
 }

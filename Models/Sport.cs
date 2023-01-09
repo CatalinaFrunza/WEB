@@ -10,8 +10,11 @@ namespace WEB.Models
     {
         public int ID { get; set; }
 
+
+        [Display(Name = "Nume Sport")]
         public string NumeSport { get; set; }
 
+        [Display(Name = "Nume Instructor")]
         public int? InstructorID { get; set; }
         public Instructor? Instructor { get; set; }
 

@@ -50,7 +50,7 @@ namespace WEB.Pages.Sporturi
                 x.ID,
                 FullName = x.Instructor.Nume + " " + x.Instructor.Prenume
             });
-            ViewData["InstructorID"] = new SelectList(InstructorList, "ID", "FullName");
+            ViewData["InstructorID"] = new SelectList(_context.Set<Instructor>(), "ID", "FullName");
 
             return Page();
         }

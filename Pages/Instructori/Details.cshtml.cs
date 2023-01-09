@@ -23,16 +23,20 @@ namespace WEB.Pages.Instructori
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Instructor == null)
             {
                 return NotFound();
             }
 
-            Instructor = await _context.Instructor_1.FirstOrDefaultAsync(m => m.ID == id);
+            var instructor = await _context.Instructor.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Instructor == null)
+            if (instructor == null)
             {
                 return NotFound();
+            }
+            else
+            {
+                Instructor = instructor;
             }
             return Page();
         }

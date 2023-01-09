@@ -32,6 +32,7 @@ namespace WEB.Pages.Locatii
         {
             if (!ModelState.IsValid)
             {
+                ViewData["LocatieID"] = new SelectList(_context.Set<Locatie>(), "ID", "NumeLocatie");
                 return Page();
             }
 
