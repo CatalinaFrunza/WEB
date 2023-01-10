@@ -13,7 +13,7 @@
     <form asp-page="./Index" method="get">
         <div class="form-actions no-color">
             <p>
-                Find by Sport / InstructorID:
+                Find by Nume Sport / Nume Instructor:
                 <input type="text" name="SearchString" value="@Model.CurrentFilter" />
                 <input type="submit" value="Search" class="btn btn-primary" /> |
                 <a asp-page="./Index">Back to full List</a>
@@ -32,14 +32,14 @@
             </th>
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.InstructorSortare">
-                @Html.DisplayNameFor(model => model.Sport[0].InstructorID)
+                @Html.DisplayNameFor(model => model.Sport[0].Instructor)
                 </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Sport[0].Pret)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Sport[0].Locatie.NumeSala)
+                @Html.DisplayNameFor(model => model.Sport[0].Locatie)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Sport[0].Durata)
@@ -51,17 +51,24 @@
     </thead>
     <tbody>
 @foreach (var item in Model.SportD.Sporturi) {
-        <tr>
+       string selectedRow = "";
+            if (item.ID == Model.SportID)
+            {
+                selectedRow = "table-success";
+            }
+
+            <tr class="@selectedRow">
+      
             <td>
                 @Html.DisplayFor(modelItem => item.NumeSport)
             </td> <td>
-                @Html.DisplayFor(modelItem => item.InstructorID)
+                @Html.DisplayFor(modelItem => item.Instructor.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Pret)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Locatie.NumeSala)
+                    @Html.DisplayFor(modelItem => item.LocatieID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Durata)

@@ -27,13 +27,12 @@ namespace WEB.Pages.Sporturi
         public int SportID { get; set; }
         public int CategorieID { get; set; }
 
-        public int InstructorID { get; set; }
-
-        public string CurrentFilter { get; set; }
-
         public string SportSortare { get; set; }
         public string InstructorSortare { get; set; }
 
+        public string CurrentFilter { get; set; }
+
+        
 
         public async Task OnGetAsync(int? id, int? CategorieID, string sortOrder, string searchString)
         {
@@ -55,8 +54,7 @@ namespace WEB.Pages.Sporturi
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                SportD.Sporturi = SportD.Sporturi.Where(s => s.Instructor.FullName.Contains(searchString)
-                                                              || s.NumeSport.Contains(searchString));
+                SportD.Sporturi = SportD.Sporturi.Where(s => s.Instructor.FullName.Contains(searchString)  || s.NumeSport.Contains(searchString));
 
                 if (id != null)
                 {

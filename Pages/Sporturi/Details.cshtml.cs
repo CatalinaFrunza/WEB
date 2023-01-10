@@ -28,7 +28,7 @@ namespace WEB.Pages.Sporturi
                 return NotFound();
             }
 
-            var sport = await _context.Sport.Include(b => b.Instructor).AsNoTracking().FirstOrDefaultAsync(m => m.ID == id);
+            var sport = await _context.Sport.Include(b => b.Instructor).Include(b => b.Locatie).AsNoTracking().FirstOrDefaultAsync(m => m.ID == id);
 
             if (Sport == null)
             {
