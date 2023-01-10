@@ -21,7 +21,7 @@ namespace WEB.Pages.Categorii
         }
 
         [BindProperty]
-        public Categorie Categorie { get; set; }
+        public Categorie Categorie { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,11 +32,11 @@ namespace WEB.Pages.Categorii
 
             var categorie = await _context.Categorie.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Categorie == null)
+            if (categorie == null)
             {
                 return NotFound();
             }
-            categorie = Categorie;
+            Categorie = categorie;
             return Page();
         }
 

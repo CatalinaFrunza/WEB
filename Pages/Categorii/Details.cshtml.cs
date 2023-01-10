@@ -23,20 +23,20 @@ namespace WEB.Pages.Categorii
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Categorie == null)
             {
                 return NotFound();
             }
 
             var categorie = await _context.Categorie.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Categorie == null)
+            if (categorie == null)
             {
                 return NotFound();
             }
             else
             {
-                categorie = Categorie;
+                Categorie = categorie;
             }
             return Page();
         }

@@ -37,7 +37,7 @@ namespace WEB.Pages.Instructori
             }
             else
             {
-                Instructor = Instructor;
+                Instructor = instructor;
             }
             return Page();
         }
@@ -52,7 +52,7 @@ namespace WEB.Pages.Instructori
 
             if (instructor != null)
             {
-                Instructor = Instructor;
+                Instructor = instructor;
                 _context.Instructor.Remove(instructor);
                 await _context.SaveChangesAsync();
             }

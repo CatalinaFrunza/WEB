@@ -30,7 +30,7 @@ namespace WEB.Pages.Sporturi
 
             var sport = await _context.Sport.Include(b => b.Instructor).Include(b => b.Locatie).AsNoTracking().FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Sport == null)
+            if (sport == null)
             {
                 return NotFound();
             }

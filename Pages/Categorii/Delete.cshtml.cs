@@ -31,7 +31,7 @@ namespace WEB.Pages.Categorii
 
             var categorie = await _context.Categorie.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Categorie == null)
+            if (categorie == null)
             {
                 return NotFound();
             }
@@ -44,16 +44,16 @@ namespace WEB.Pages.Categorii
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Categorie == null)
             {
                 return NotFound();
             }
 
-            Categorie = await _context.Categorie.FindAsync(id);
+            var categorie = await _context.Categorie.FindAsync(id);
 
             if (Categorie != null)
             {
-                Categorie = Categorie;
+                Categorie = categorie;
                 _context.Categorie.Remove(Categorie);
                 await _context.SaveChangesAsync();
             }
